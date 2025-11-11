@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contacto</title>
+  <link rel="icon" href="https://yamusicchris.github.io/ES/Logo.png" type="image/x-icon">
+  <style>
+    /* Estilo minimalista oscuro */
+    :root{
+      --bg:#121212;
+      --panel:#1a1a1a;
+      --accent:#1DB954;
+      --accent-hover:#17441b;
+      --text:#ffffff;
+      --muted:#bdbdbd;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:1rem 1.5rem;
+      background:var(--panel);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+    header img{height:48px; width:auto}
+    
+nav a {
+    margin-left: 2rem;
+    color: var(--accent); /* texto verde */
+    text-decoration: none; /* sin subrayado por defecto */
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-bottom: 2px solid transparent; /* línea invisible por defecto */
+    transition: border-bottom 0s ease; /* animación suave */
+}
+
+nav a:hover {
+    border-bottom: 1px solid var(--accent); /* línea verde al pasar el mouse */
+}
+
+    
+    main{
+      max-width:1000px;
+      margin:2.5rem auto;
+      padding:0 1.5rem;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border:1px solid rgba(255,255,255,0.03);
+      padding:2rem;
+      border-radius:12px;
+      text-align:center;
+    }
+
+    .hero-title{font-size:1.7rem; margin:0 0 .25rem}
+    .hero-sub{color:var(--muted); margin:0 0 1.25rem}
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:0.75rem;
+      margin-top:1rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:0.6rem;
+      padding:0.7rem 1rem;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:700;
+      font-size:0.95rem;
+      border:none;
+      cursor:pointer;
+    }
+    .btn:hover{background:var(--accent-hover)}
+    .btn.secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--text);
+      font-weight:600;
+    }
+    .btn.secondary:hover{background:rgba(255,255,255,0.02)}
+
+    .info{
+      margin-top:1.25rem;
+      color:var(--muted);
+      font-size:0.95rem;
+      line-height:1.5;
+    }
+
+    .small-note{
+      margin-top:1rem;
+      font-size:0.85rem;
+      color:var(--muted);
+    }
+
+    footer{
+      text-align:center;
+      margin:2.5rem 0 0;
+      padding:1.25rem;
+      color:var(--muted);
+      background:var(--panel);
+    }
+
+    @media (min-width:680px){
+      .hero-title{font-size:2rem}
+    }
+    html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ocupa toda la altura de la ventana */
+}
+
+main {
+    flex: 1; /* hace que main ocupe el espacio disponible */
+}
+
+footer {
+    text-align: center;
+    padding: 1.25rem;
+    color: var(--muted);
+    background: var(--panel);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://yamusicchris.github.io/ES/Logo.png" alt="Ya! Music Chris - logo">
+    <nav>
+      <a href="https://yamusicchris.github.io/ES/">Inicio</a>
+      <a href="https://yamusicchris.github.io/ES/albums/">Álbumes</a>
+      <a href="https://yamusicchris.github.io/ES/redes/">Redes Sociales</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card" role="region" aria-labelledby="contact-title">
+      <h1 id="contact-title" class="hero-title">Contacto</h1>
+      <p class="hero-sub">Aquí tienes las formas de contacto y las plataformas oficiales.</p>
+
+      <div class="cta-row" role="list">
+        <!-- Reemplaza los href por tus URLs reales -->
+        <a class="btn" href="mailto:christopher.celaya.ric2022@correo.com" role="listitem" title="Enviar correo">
+          ✉️ Correo
+        </a>
+
+        <a class="btn" href="https://YaMusicChris.github.io/ES/" target="_blank" rel="noopener noreferrer" role="listitem" title="Sitio web">
+          🔗 Sitio (ES)
+        </a>
+
+        <a class="btn" href="https://www.youtube.com/@YaMusicChris" target="_blank" rel="noopener noreferrer" role="listitem" title="YouTube">
+          ▶️ YouTube
+        </a>
+
+        <a class="btn" href="https://on.soundcloud.com/Jfcshxu5i1OfWz5A6P" target="_blank" rel="noopener noreferrer" role="listitem" title="Cloudflare">
+          ☁️ SoundCloud
+        </a>
+
+        <a class="btn" href="https://github.com/YaMusicChris" target="_blank" rel="noopener noreferrer" role="listitem" title="GitHub">
+          🐙 GitHub
+        </a>
+      </div>
+
+      <div class="info" aria-live="polite">
+        <p>Si prefieres enviar un mensaje directo, usa el enlace de correo o visita nuestras plataformas oficiales.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Ya! Music Chris. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // script liviano para accesibilidad o futuras acciones
+    (function(){
+      console.log("Contacto — Ya! Music Chris (ES)");
+      // ejemplo: mejorar enlaces en móviles si hace falta
+    })();
+  </script>
+</body>
+</html>

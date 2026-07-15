@@ -1,0 +1,1210 @@
+/* ==========================================
+   Ya! Music Chris
+   Official Songs Player
+   style.css
+========================================== */
+
+
+:root{
+
+    --bg:#121212;
+    --surface:#181818;
+    --surface-hover:#282828;
+
+    --player:#101010;
+
+    --green:#1DB954;
+    --green-hover:#1ed760;
+
+    --text:#ffffff;
+    --muted:#b3b3b3;
+
+}
+
+
+
+/* =========================
+   GENERAL
+========================= */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+body{
+
+    background:var(--bg);
+
+    color:white;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+
+    padding-bottom:130px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+header{
+
+
+    position:sticky;
+
+
+    top:0;
+
+
+    z-index:100;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    padding:15px 40px;
+
+
+    background:
+
+    rgba(18,18,18,.92);
+
+
+    backdrop-filter:blur(15px);
+
+
+}
+
+
+
+
+header img{
+
+
+    height:50px;
+
+
+}
+
+
+
+
+
+nav{
+
+
+    display:flex;
+
+
+    gap:30px;
+
+
+}
+
+
+
+
+nav a{
+
+
+    color:white;
+
+
+    text-decoration:none;
+
+
+    font-weight:600;
+
+
+    transition:.2s;
+
+
+}
+
+
+
+
+nav a:hover{
+
+
+    color:var(--green);
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   HERO
+========================= */
+
+
+.hero{
+
+
+    text-align:center;
+
+
+    padding:70px 20px 40px;
+
+
+}
+
+
+
+.hero h1{
+
+
+    font-size:3rem;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.hero p{
+
+
+    max-width:700px;
+
+
+    margin:auto;
+
+
+    color:var(--muted);
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   SONGS
+========================= */
+
+
+.songs{
+
+
+    max-width:1100px;
+
+
+    margin:auto;
+
+
+    padding:25px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:15px;
+
+
+}
+
+
+
+
+
+
+.song-card{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:20px;
+
+
+
+    background:var(--surface);
+
+
+
+    padding:15px;
+
+
+
+    border-radius:14px;
+
+
+
+    cursor:pointer;
+
+
+
+    transition:.25s;
+
+
+
+}
+
+
+
+
+.song-card:hover{
+
+
+    background:var(--surface-hover);
+
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+.song-card.active{
+
+
+    border-left:
+
+    5px solid var(--green);
+
+
+}
+
+
+
+
+
+.song-cover{
+
+
+    width:85px;
+
+
+    height:85px;
+
+
+
+    border-radius:12px;
+
+
+
+    object-fit:cover;
+
+
+
+    flex-shrink:0;
+
+
+
+}
+
+
+
+
+
+
+.song-info{
+
+
+    flex:1;
+
+
+}
+
+
+
+
+.song-title{
+
+
+    font-size:1.1rem;
+
+
+    font-weight:700;
+
+
+}
+
+
+
+.song-artist{
+
+
+    color:var(--muted);
+
+
+    margin-top:5px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   PLAYER
+========================= */
+
+
+.player{
+
+
+    position:fixed;
+
+
+    bottom:0;
+
+
+    left:0;
+
+
+    right:0;
+
+
+
+    height:105px;
+
+
+
+    background:var(--player);
+
+
+
+    border-top:1px solid #333;
+
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    padding:15px 30px;
+
+
+
+    z-index:200;
+
+
+
+}
+
+
+
+
+
+
+.player-left{
+
+
+    width:320px;
+
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    gap:15px;
+
+
+
+}
+
+
+
+
+
+.player-left img{
+
+
+    width:65px;
+
+
+    height:65px;
+
+
+
+    border-radius:10px;
+
+
+
+    object-fit:cover;
+
+
+
+}
+
+
+
+
+
+
+#player-title{
+
+
+    font-weight:700;
+
+
+    max-width:220px;
+
+
+    white-space:nowrap;
+
+
+    overflow:hidden;
+
+
+    text-overflow:ellipsis;
+
+
+}
+
+
+
+#player-artist{
+
+
+    color:var(--muted);
+
+
+    margin-top:5px;
+
+
+}
+
+
+
+
+
+
+
+
+.player-center{
+
+
+    flex:1;
+
+
+
+    display:flex;
+
+
+
+    flex-direction:column;
+
+
+
+    align-items:center;
+
+
+
+    gap:8px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   CONTROLES
+========================= */
+
+
+
+.player-controls{
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    justify-content:center;
+
+
+
+    gap:20px;
+
+
+
+}
+
+
+
+
+
+
+.player-btn{
+
+
+    width:55px;
+
+
+    height:55px;
+
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    justify-content:center;
+
+
+
+    background:none;
+
+
+
+    border:none;
+
+
+
+    cursor:pointer;
+
+
+
+    transition:.2s;
+
+
+
+}
+
+
+
+
+.player-btn:hover{
+
+
+    transform:scale(1.12);
+
+
+
+}
+
+
+
+
+.player-btn img{
+
+
+    width:45px;
+
+
+    height:45px;
+
+
+
+    object-fit:contain;
+
+
+
+}
+
+
+
+
+
+/* PLAY / PAUSA */
+
+
+.player-btn.main{
+
+
+    width:70px;
+
+
+
+    height:70px;
+
+
+
+    background:var(--green);
+
+
+
+    border-radius:50%;
+
+
+
+}
+
+
+
+
+.player-btn.main:hover{
+
+
+    background:var(--green-hover);
+
+
+
+}
+
+
+
+
+.player-btn.main img{
+
+
+    width:58px;
+
+
+    height:58px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   PROGRESO
+========================= */
+
+
+.progress{
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    gap:10px;
+
+
+
+    width:70%;
+
+
+
+}
+
+
+
+.progress span{
+
+
+    color:var(--muted);
+
+
+
+    font-size:.8rem;
+
+
+
+}
+
+
+
+.progress input{
+
+
+    width:100%;
+
+
+
+    accent-color:var(--green);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   VOLUMEN
+========================= */
+
+
+.player-right{
+
+
+    width:220px;
+
+
+
+    display:flex;
+
+
+
+    align-items:center;
+
+
+
+    justify-content:flex-end;
+
+
+
+    gap:10px;
+
+
+
+}
+
+
+
+
+.player-right input{
+
+
+    accent-color:var(--green);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   AVISO SIN INTERNET
+========================= */
+
+
+#offline-message{
+
+
+    position:fixed;
+
+
+
+    top:90px;
+
+
+
+    left:50%;
+
+
+
+    transform:translateX(-50%);
+
+
+
+    background:#b91c1c;
+
+
+
+    color:white;
+
+
+
+    padding:15px 25px;
+
+
+
+    border-radius:12px;
+
+
+
+    text-align:center;
+
+
+
+    font-weight:bold;
+
+
+
+    z-index:9999;
+
+
+
+    box-shadow:
+
+    0 5px 20px rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   AVISO RED LENTA
+========================= */
+
+
+#network-warning{
+
+
+    position:fixed;
+
+
+
+    top:90px;
+
+
+
+    left:50%;
+
+
+
+    transform:translateX(-50%);
+
+
+
+    background:#d97706;
+
+
+
+    color:white;
+
+
+
+    padding:15px 25px;
+
+
+
+    border-radius:12px;
+
+
+
+    text-align:center;
+
+
+
+    font-weight:bold;
+
+
+
+    z-index:9998;
+
+
+
+    box-shadow:
+
+    0 5px 20px rgba(0,0,0,.4);
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer{
+
+
+    text-align:center;
+
+
+    color:var(--muted);
+
+
+    padding:30px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+
+::-webkit-scrollbar{
+
+
+    width:10px;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+
+    background:#333;
+
+
+
+    border-radius:20px;
+
+
+
+}
+
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+
+    background:#555;
+
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+
+@media(max-width:900px){
+
+
+
+header{
+
+
+    flex-direction:column;
+
+
+
+    gap:15px;
+
+
+
+}
+
+
+
+
+.player{
+
+
+    height:auto;
+
+
+
+    flex-direction:column;
+
+
+
+    gap:15px;
+
+
+
+    padding:15px;
+
+
+
+}
+
+
+
+
+.player-left,
+.player-right{
+
+
+    width:100%;
+
+
+
+    justify-content:center;
+
+
+
+}
+
+
+
+
+.progress{
+
+
+    width:90%;
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+
+.hero h1{
+
+
+    font-size:2.2rem;
+
+
+
+}
+
+
+
+.song-cover{
+
+
+    width:65px;
+
+
+
+    height:65px;
+
+
+
+}
+
+
+
+
+.player-btn img{
+
+
+    width:40px;
+
+
+
+    height:40px;
+
+
+
+}
+
+
+
+
+.player-btn.main img{
+
+
+    width:58px;
+
+
+
+    height:58px;
+
+
+
+}
+
+
+
+}

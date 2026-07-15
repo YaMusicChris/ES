@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="icon" href="https://yamusicchris.github.io/ES/Logo.png" type="image/x-icon">
+    <link rel="icon" href="https://yamusicchris.github.io/icon.png" type="image/x-icon">
     <style>
         /* CSS Embebido */
         body {
@@ -56,32 +56,48 @@
             background-color: #1a1a1a;
             margin-top: 2rem;
         }
+        .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px; /* Cambia este valor si deseas un ancho máximo diferente */
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px; /* Opcional */
+}
+
+.video-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://yamusicchris.github.io/ES/Logo.png" alt="Ya! Music Chris Logo">
+    <img src="https://yamusicchris.github.io/icon.png" alt="Ya! Music Chris Logo">
     <nav>
-        <a href="https://yamusicchris.github.io/ES/albums/">Álbumes</a>
-        <a href="https://yamusicchris.github.io/ES/contacto/">Contacto</a>
+        <a href="https://yamusicchris.github.io/ES/canciones/">Canciones</a>
     </nav>
 </header>
 
 <section class="hero">
-    <img src="https://yamusicchris.github.io/ES/Banner.png" alt="Portada Ya! Music Chris">
-    <h1>¡Bienvenido a Ya! Music Chris!</h1>
-    <p>Un espacio Musical de Ya! Music Chris</p>
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vVIJOP2ov_M?si=O5uKXr5nePIms8-P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+    <h1>¡Bienvenido al sitio oficial de Ya! Music Chris!</h1>
+    <p>Esto es un espacio musical de Ya! Music Chris, un lugar en desarrollo, la cual proximamente tendremos nuestro reproductor para que escuches musica sin anuncios y fuera de YouTube, tambien podras descargar nuestras canciones.</p>
 </section>
 
 <footer>
-    &copy; 2026 Ya! Music Chris. Todos los derechos reservados.
+    &copy; 2023 - 2026 Ya! Music Chris. Todos los derechos reservados.
 </footer>
 
 <script>
-    // JS Embebido
-    console.log("Bienvenido a Ya! Music Chris - ES");
-    // Aquí puedes agregar funciones futuras, animaciones, reproductor, etc.
+    console.log("Bienvenido a la consola de tu navegador, de la misma forma a la plataforma oficial de Ya! Music Chris en Español");
 </script>
 
 </body>

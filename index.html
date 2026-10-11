@@ -1,118 +1,1261 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estamos renovando nuestro Sitio Web - regresa más tarde</title>
-    <link rel="icon" href="https://yamusicchris.github.io/C.png" type="image/x-icon">
-    <style>
-        /* CSS Embebido */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        a {
-            color: #1DB954;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-            background-color: #1a1a1a;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        header img {
-            height: 50px;
-        }
-        nav a {
-            margin-left: 2rem;
-            font-weight: bold;
-        }
-        section {
-            padding: 4rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .hero img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #1a1a1a;
-            margin-top: 2rem;
-        }
-        .video-container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 12px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090d">
 
-.video-container iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-    </style>
+  <title>Ya! Music Chris | Una experiencia inolvidable</title>
+
+  <link rel="icon" href="https://yamusicchris.github.io/C.png" type="image/png">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       VARIABLES Y BASE
+    ========================= */
+
+    :root {
+      color-scheme: dark;
+      --bg: #09090d;
+      --surface: #111118;
+      --surface-light: #191922;
+      --text: #f7f7fb;
+      --muted: #a1a1b3;
+      --accent: #b7ff3c;
+      --border: rgba(255,255,255,.1);
+      --radius: 18px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body, button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button, a {
+      touch-action: manipulation;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.12;
+      letter-spacing: -.04em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.3rem);
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-top: 14px;
+      max-width: 620px;
+    }
+
+    .section-header.center {
+      text-align: center;
+    }
+
+    .section-header.center .section-description {
+      margin-inline: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 23px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: .9rem;
+      font-weight: 700;
+      transition: transform .2s, background .2s, color .2s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #10120a;
+    }
+
+    .button-primary:hover {
+      background: #d0ff82;
+    }
+
+    .button-outline {
+      border-color: var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .button-outline:hover {
+      background: white;
+      color: #111;
+    }
+
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9,9,13,.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -.05em;
+    }
+
+    .brand img {
+      width: 148px;
+      max-height: 44px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .brand-symbol {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      background: var(--accent);
+      color: #111;
+      border-radius: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.35rem;
+    }
+
+    /* =========================
+       PORTADA / CARRUSEL
+    ========================= */
+
+    .hero {
+      position: relative;
+      min-height: min(760px, calc(100svh - 76px));
+      overflow: hidden;
+      isolation: isolate;
+      background: #171720;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .8s ease, visibility .8s;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    .hero-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(5,5,10,.92), rgba(5,5,10,.45) 65%, rgba(5,5,10,.2)),
+        linear-gradient(0deg, rgba(5,5,10,.5), transparent 60%);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding-block: 100px;
+    }
+
+    .hero-kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .78rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: .98;
+      margin-bottom: 25px;
+      max-width: 850px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      color: #d0d0db;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      max-width: 530px;
+      margin-bottom: 32px;
+    }
+
+    .hero-controls {
+      position: absolute;
+      z-index: 5;
+      bottom: 35px;
+      left: 50%;
+      width: min(var(--container), calc(100% - 40px));
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-dot {
+      width: 30px;
+      height: 4px;
+      border: 0;
+      border-radius: 5px;
+      background: rgba(255,255,255,.35);
+      cursor: pointer;
+      transition: width .25s, background .25s;
+    }
+
+    .hero-dot.active {
+      width: 55px;
+      background: var(--accent);
+    }
+
+    .hero-arrow {
+      margin-left: auto;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.3);
+      background: rgba(0,0,0,.2);
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .hero-arrow + .hero-arrow {
+      margin-left: 0;
+    }
+
+    /* =========================
+       EVENTO DESTACADO
+    ========================= */
+
+    .featured {
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(183,255,60,.08), transparent 45%),
+        var(--bg);
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: var(--surface);
+    }
+
+    .featured-image {
+      min-height: 350px;
+      background: #20202b url("images/events-02-571x313.jpg") center/cover no-repeat;
+    }
+
+    .featured-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: clamp(25px, 5vw, 60px);
+    }
+
+    .featured-content h3 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 18px;
+    }
+
+    .featured-content p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .event-meta {
+      color: var(--accent);
+      font-size: .85rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       VIDEOS
+    ========================= */
+
+    .video-section {
+      background: #0d0d13;
+    }
+
+    .video-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(260px, .8fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .video-player {
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
+      background: #000;
+      border: 1px solid var(--border);
+    }
+
+    .video-player iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .video-item {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      align-items: center;
+      gap: 14px;
+      padding: 10px;
+      text-align: left;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
+    }
+
+    .video-item:hover,
+    .video-item.active {
+      background: var(--surface-light);
+      border-color: var(--accent);
+    }
+
+    .video-item img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #222;
+    }
+
+    .video-item span {
+      font-size: .8rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* =========================
+       GALERÍA
+    ========================= */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius);
+      background: var(--surface);
+      isolation: isolate;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: 30% 0 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.9));
+      z-index: 0;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      z-index: 1;
+      left: 20px;
+      right: 15px;
+      bottom: 20px;
+    }
+
+    .gallery-caption h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .gallery-caption time {
+      color: #ddd;
+      font-size: .78rem;
+    }
+
+    /* =========================
+       NOTICIAS
+    ========================= */
+
+    .news-section {
+      background: #0d0d13;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .news-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      transition: transform .25s, border-color .25s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(183,255,60,.5);
+    }
+
+    .news-image {
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #20202b;
+    }
+
+    .news-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .news-card:hover .news-image img {
+      transform: scale(1.05);
+    }
+
+    .news-content {
+      padding: 25px;
+    }
+
+    .news-content time {
+      color: var(--accent);
+      font-size: .77rem;
+      font-weight: 700;
+    }
+
+    .news-content h3 {
+      font-size: 1.15rem;
+      margin: 14px 0 18px;
+      line-height: 1.4;
+      letter-spacing: -.02em;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       GIRA Y FECHAS
+    ========================= */
+
+    .tour-section {
+      background:
+        radial-gradient(ellipse at 85% 40%, rgba(183,255,60,.06), transparent 45%),
+        var(--bg);
+    }
+
+    .tour-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .tour-intro {
+      position: sticky;
+      top: 110px;
+    }
+
+    .tour-intro p {
+      color: var(--muted);
+      margin: 20px 0 28px;
+    }
+
+    .tour-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tour-item {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+      transition: border-color .2s;
+    }
+
+    .tour-item:hover {
+      border-color: var(--accent);
+    }
+
+    .tour-date {
+      text-align: center;
+      color: var(--accent);
+    }
+
+    .tour-date strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .tour-date span {
+      font-size: .7rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .tour-info h3 {
+      font-size: 1rem;
+      letter-spacing: -.02em;
+      margin-bottom: 5px;
+    }
+
+    .tour-info p {
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .tour-item .button {
+      min-height: 38px;
+      padding-inline: 15px;
+      font-size: .78rem;
+    }
+
+    /* =========================
+       REDES Y PIE DE PÁGINA
+    ========================= */
+
+    .social-section {
+      padding: 65px 0;
+      border-block: 1px solid var(--border);
+      text-align: center;
+      background: var(--surface);
+    }
+
+    .social-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin-bottom: 15px;
+    }
+
+    .social-section p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social-links a {
+      padding: 11px 19px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 700;
+      transition: color .2s, border-color .2s;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .site-footer {
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-inner p,
+    .footer-inner a {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .footer-inner a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 17px;
+      }
+
+      .navbar > .button {
+        display: none;
+      }
+
+      .video-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .video-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tour-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .tour-intro {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .navbar {
+        min-height: 68px;
+      }
+
+      .brand img {
+        width: 125px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 16px 18px;
+        background: #0d0d13;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 13px 8px;
+      }
+
+      .hero {
+        min-height: 650px;
+        min-height: min(740px, calc(100svh - 68px));
+      }
+
+      .hero-slide {
+        background-position: 60% center;
+      }
+
+      .hero-slide::before {
+        background: linear-gradient(90deg, rgba(5,5,10,.88), rgba(5,5,10,.4)),
+                    linear-gradient(0deg, rgba(5,5,10,.65), transparent);
+      }
+
+      .hero-content {
+        padding-block: 75px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 13vw, 5rem);
+      }
+
+      .hero-controls {
+        bottom: 20px;
+      }
+
+      .featured-card {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-image {
+        min-height: 240px;
+      }
+
+      .featured-content {
+        padding: 28px;
+      }
+
+      .video-list {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        gap: 10px;
+      }
+
+      .gallery-caption {
+        left: 12px;
+        bottom: 12px;
+      }
+
+      .gallery-caption h3 {
+        font-size: .9rem;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-item {
+        grid-template-columns: 48px 1fr;
+        gap: 14px;
+        padding: 15px;
+      }
+
+      .tour-date strong {
+        font-size: 1.5rem;
+      }
+
+      .tour-item .button {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <img src="https://yamusicchris.github.io/icon.png" alt="Ya! Music Chris Logo">
-</header>
+  <!-- NAVEGACIÓN -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegación principal">
 
-<section class="hero">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>Estamos renovando nuestro Sitio Web</h1>
-    <p>Regresa Más Tarde</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-</section>
+      <a class="brand" href="#inicio">
+        <img
+          src="https://yamusicchris.github.io/icon.png"
+          alt="Ya! Music Chris"
+          width="30"
+          height="30"
+        >
+      </a>
 
-<footer>
-    &copy; 2023 - 2026 Ya! Music Chris. Todos los derechos reservados.
-</footer>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        ☰
+      </button>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a class="active" href="#inicio">Inicio</a></li>
+        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="https://example.com">Música</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
 
-<script>
-    console.log("Bienvenido a la consola de tu navegador, de la misma forma a la plataforma oficial de Ya! Music Chris en Español");
-</script>
+    <!-- Part 1 -->
+    <section class="hero" id="inicio" aria-label="Presentación">
+
+      <article
+        class="hero-slide active"
+        aria-hidden="false"
+      >
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-kicker">Más que música, una experiencia inolvidable</p>
+            <h1>ChrisWorld™ <span>Experience</span></h1>
+            <p class="hero-description">
+               La musica no solo se hace, se siente.
+              <br>
+              <br>
+              - Christopher
+              <br>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="hero-slide"
+        aria-hidden="true"
+      >
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-kicker">Experimenta la mejor musica</p>
+            <h1>Elige tu <span>Musica Favorita</span></h1>
+            <p class="hero-description">
+              Seleccionamos, corregimos y creamos desde el corazón la musica que te puede encantar.
+              <br>
+              <br>
+              - Ya! Music Chris
+              <br>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="hero-slide"
+        aria-hidden="true"
+      >
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-kicker">El sonido del siguiente nivel</p>
+            <h1>Complementamos la <span>Alta Calidad</span></h1>
+            <p class="hero-description">
+             Con ChrisWorld™ la musica se convirtio de calidad común a una calidad impresionante y videos en 4K con la fluidez que impresiona.
+              <br>
+              <br>
+              - Ya! Gamer Chris
+              <br>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <div class="hero-controls" aria-label="Controles del carrusel">
+        <button class="hero-dot active" aria-label="Mostrar diapositiva 1" aria-pressed="true"></button>
+        <button class="hero-dot" aria-label="Mostrar diapositiva 2" aria-pressed="false"></button>
+        <button class="hero-dot" aria-label="Mostrar diapositiva 3" aria-pressed="false"></button>
+
+        <button class="hero-arrow" id="hero-prev" aria-label="Diapositiva anterior">←</button>
+        <button class="hero-arrow" id="hero-next" aria-label="Siguiente diapositiva">→</button>
+      </div>
+
+    </section>
+    
+    <!-- Part 2 -->
+    <section class="section video-section" id="videos">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="eyebrow">Reproduce, escucha, y repite.</p>
+          <h2>Nuestros Videos</h2>
+          <p class="section-description">
+            Hemos preparado para ustedes los videos de alta definición de audio y video.
+          </p>
+        </div>
+
+        <div class="video-layout">
+
+          <div class="video-player">
+            <iframe
+              id="main-video"
+              src="https://www.youtube-nocookie.com/embed/hJcjKA6ChP8"
+              title="Video musical"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="video-list" aria-label="Seleccionar video">
+
+            <button class="video-item active" data-video="hJcjKA6ChP8">
+              <img src="https://yamusicchris.github.io/yt.covers.ymc.com/hJcjKA6ChP8.png" alt="Images embed for ChrisWorldTM" loading="lazy">
+              <span>EDC Festival Party Mix - 2026</span>
+            </button>
+
+            <button class="video-item" data-video="AyefSDCP_jM">
+              <img src="https://yamusicchris.github.io/yt.covers.ymc.com/AyefSDCP_jM.png" alt="Images embed for ChrisWorldTM" loading="lazy">
+              <span>Eiffel 65 - Blue</span>
+            </button>
+
+            <button class="video-item" data-video="dWav3cn7fWU">
+              <img src="https://yamusicchris.github.io/yt.covers.ymc.com/dWav3cn7fWU.png" alt="Images embed for ChrisWorldTM" loading="lazy">
+              <span>TheFatRat - Fire</span>
+            </button>
+
+            <button class="video-item" data-video="LlQKPcQcAPY">
+              <img src="https://yamusicchris.github.io/yt.covers.ymc.com/LlQKPcQcAPY.png" alt="Images embed for ChrisWorldTM" loading="lazy">
+              <span>We present: "The World"</span>
+            </button>
+
+            <button class="video-item" data-video="0oFWokJU8Co">
+              <img src="https://yamusicchris.github.io/yt.covers.ymc.com/0oFWokJU8Co.png" alt="Images embed for ChrisWorldTM" loading="lazy">
+              <span>Nothing is perfect</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- REDES SOCIALES -->
+    <section class="social-section" id="contacto">
+      <div class="container">
+        <p class="eyebrow">Conectemos</p>
+        <h2>La música nos une</h2>
+        <p>Siguenos en todas las redes sociales</p>
+
+        <div class="social-links">
+          
+          <a href="https://instagram.com/ChrisWorldTM.Official" aria-label="Instagram"><img src="https://yamusicchris.github.io/instagram.png" alt="ChrisWorld™" style="max-height: 45px; width: 100%; object-fit: contain;"></a>
+          <a href="https://YouTube.com/@YaMusicChris.Official" aria-label="YouTube"><img src="https://yamusicchris.github.io/YouTube.png" alt="ChrisWorld™" style="max-height: 45px; width: 100%; object-fit: contain;"></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        © <span id="current-year"></span> ChrisWorld™.
+        Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
+      menuToggle.textContent = "☰";
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Cerrar menú" : "Abrir menú"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    /* =========================
+       CARRUSEL PRINCIPAL
+    ========================= */
+
+    const slides = [...document.querySelectorAll(".hero-slide")];
+    const dots = [...document.querySelectorAll(".hero-dot")];
+    const hero = document.querySelector(".hero");
+
+    let currentSlide = 0;
+    let carouselTimer;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        const active = i === currentSlide;
+
+        slide.classList.toggle("active", active);
+        slide.setAttribute("aria-hidden", String(!active));
+      });
+
+      dots.forEach((dot, i) => {
+        const active = i === currentSlide;
+
+        dot.classList.toggle("active", active);
+        dot.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    function stopCarousel() {
+      clearInterval(carouselTimer);
+    }
+
+    function startCarousel() {
+      stopCarousel();
+
+      if (reducedMotion.matches) return;
+
+      carouselTimer = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5000);
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        showSlide(i);
+        startCarousel();
+      });
+    });
+
+    document.querySelector("#hero-prev").addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+      startCarousel();
+    });
+
+    document.querySelector("#hero-next").addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+      startCarousel();
+    });
+
+    hero.addEventListener("mouseenter", stopCarousel);
+    hero.addEventListener("mouseleave", startCarousel);
+
+    hero.addEventListener("focusin", stopCarousel);
+    hero.addEventListener("focusout", startCarousel);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopCarousel();
+      } else {
+        startCarousel();
+      }
+    });
+
+    reducedMotion.addEventListener("change", startCarousel);
+
+    startCarousel();
+
+    /* =========================
+       SELECTOR DE VIDEOS
+    ========================= */
+
+    const videoFrame = document.querySelector("#main-video");
+    const videoButtons = document.querySelectorAll(".video-item");
+
+    videoButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const videoId = button.dataset.video;
+
+        if (!videoId) return;
+
+        videoFrame.src =
+          "https://www.youtube-nocookie.com/embed/" +
+          encodeURIComponent(videoId);
+
+        videoButtons.forEach(item => {
+          const active = item === button;
+
+          item.classList.toggle("active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+      });
+    });
+
+    /* =========================
+       AÑO AUTOMÁTICO
+    ========================= */
+
+    document.querySelector("#current-year").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
